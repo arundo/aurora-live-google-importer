@@ -51,6 +51,7 @@ Change these in `CONFIG` at the top of the script.
 | `CALENDAR_ID` | `primary` | Which calendar to add events to. |
 | `LABEL_NAME` | `Aurora Live/Imported` | Set to `''` to turn off labelling. |
 | `DRY_RUN` | `true` | `true` means log only, change nothing. |
+| `SKIP_PAST_EVENTS` | `true` | Doesn't add meetings that ended before today. |
 | `TRIGGER_MINUTES` | `10` | Allowed values: 1, 5, 10, 15 or 30. |
 
 ## Troubleshooting
@@ -60,6 +61,7 @@ Change these in `CONFIG` at the top of the script.
 | *"This app is blocked"* | Your Workspace admin has restricted Apps Script. Ask them to allow it under **Security → API controls**. |
 | `Calendar is not defined` | The Google Calendar API service hasn't been added (install step 3). |
 | Error updating an event you added by hand | Google may not let the script change events where you're a guest. Leave the event as it is or delete it, then run `resetProcessed` so the script adds it again. |
+| `The owner of the calendar must either be the organizer or an attendee of an event that is imported` | You're running a version older than this fix. Update to the current script, which adds you as an attendee. |
 | `Unknown time zone "…"` warning | Add the Windows time zone name to `WINDOWS_TZ` in the script, with its IANA equivalent. |
 | A change made in the Partner Portal doesn't show up | The script only sees changes that arrive by email. The Partner Portal is the reliable record of your schedule. |
 
